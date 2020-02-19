@@ -1,4 +1,4 @@
-import { Component,} from '@angular/core';
+import { Component,ViewChild} from '@angular/core';
 import { IonReorderGroup } from '@ionic/angular';
 
 @Component({
@@ -7,7 +7,8 @@ import { IonReorderGroup } from '@ionic/angular';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  
+  @ViewChild(IonReorderGroup,{static:false}) reorderGroup: IonReorderGroup;
+
   constructor() {}
   doReorder(ev: any) {
     // The `from` and `to` properties contain the index of the item
@@ -20,12 +21,12 @@ export class Tab2Page {
     ev.detail.complete();
   }
 
-  toggleReorder() {
-    const reorderGroup = document.getElementById('reorder');
-    reorderGroup.disabled = !reorderGroup.disabled;
+  toggleReorderGroup() {
+    this.reorderGroup.disabled = !this.reorderGroup.disabled;
+  }
     
   }
   
 
 
-}
+

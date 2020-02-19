@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title>Reorder</ion-title>
     <ion-buttons slot="primary">
-      <ion-button (click)="toggleReorder()">Toggle</ion-button>
+      <ion-button (click)="toggleReorderGroup()">Toggle</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -13,6 +13,9 @@ zzz
       <ion-title size="large">Tab 2</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-buttons slot="primary">
+    <ion-button click="toggleReorder()">Toggle</ion-button>
+  </ion-buttons>
 <!-- The reorder gesture is disabled by default, enable it to drag and drop items -->
 <ion-reorder-group (ionItemReorder)="doReorder($event)" disabled="false">
   <!-- Default reorder icon, end aligned items -->
