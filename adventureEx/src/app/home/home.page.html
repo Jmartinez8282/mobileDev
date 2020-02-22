@@ -1,7 +1,8 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      My Choose your own Adventure Game
+    <ion-title id="title">
+    CHOOSE YOUR OWN ADVENTURE GAME!
+      
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,11 +11,13 @@
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
+      
     </ion-toolbar>
   </ion-header>
 
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <strong>  <ion-button color="success" expand="block" id="startButton" routerLink="/game">Start Game</ion-button></strong>
+    <ion-button expand="block"  routerLink="/options">OPTIONS</ion-button>
+    
   </div>
 </ion-content>

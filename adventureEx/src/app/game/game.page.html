@@ -1,9 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>game</ion-title>
-  </ion-toolbar>
-</ion-header>
+
 
 <ion-content>
+<h4>{{displayScene?.scene}}</h4>
+<ion-button (click)='nextScene(displayScene.result1)' color="primary">{{displayScene.choice1}}</ion-button>
+<ion-button (click)='nextScene(displayScene.result2)' color="secondary">{{displayScene.choice2}}</ion-button>
+
 
 </ion-content>
