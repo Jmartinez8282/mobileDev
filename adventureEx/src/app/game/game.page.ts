@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class GamePage implements OnInit {
   displayScene: Scenes;
 
-  constructor(private dService:DataService,private router: Router) { }
+  constructor(private dService:DataService,private router: Router,) { }
 
   ngOnInit() {
 
@@ -22,7 +22,7 @@ export class GamePage implements OnInit {
 console.log(id);
 if(this.displayScene.ending === true){
   
-    this.router.navigate(['/ending']);
+    this.router.navigate(['ending']);
   
 }else{
   this.displayScene = this.dService.getNextScene(id);
