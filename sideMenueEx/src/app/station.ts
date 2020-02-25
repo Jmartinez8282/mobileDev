@@ -1,10 +1,13 @@
 export interface Station {
 
 
-    station:string;
-    city:string;
-    time:string;
-    date:number;
+    
+    
+    abbr:string;
+    title:string;
+    county:string;
+    url: string
+   
    
 
 }

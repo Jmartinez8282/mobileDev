@@ -7,52 +7,42 @@ import { Station } from '../station';
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = '  http://api.bart.gov/api/etd.aspx?cmd=etd&orig=RICH&key=MW9S-E7SL-26DU-VV8V&json=y'
-  apiURL2 = 'http://api.bart.gov/api/sched.aspx?cmd=depart&orig=ASHB&dest=CIVC&date=now&key=MW9S-E7SL-26DU-VV8V&b=2&a=2&l=1&json=y'
+  apiURL = 'http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y'
+  apiURL2 = 'http://api.bart.gov/api/stn.aspx?cmd=stninfo&orig=24th&key=MW9S-E7SL-26DU-VV8V&json=y'
+
   bartApiInfo;
-  barApiInfoS;
-  
-  
+
+
+
   private station: Station[] = [];
-  
-  constructor(private http:HttpClient) {this.parseStations(); }
-  getURL(apiURL:string): Observable<any> {
-    return this.http.get<any>(apiURL);
+
+  constructor(private http: HttpClient) {  }
+
+  getURL(apiURL: string): Observable<any> {
+    return this.http.get(apiURL);
   }
-  getURLS(apiURL2:string): Observable<any> {
-    return this.http.get<any>(apiURL2);
-  }
+
   parseStations() {
     this.bartApiInfo = this.http.get<any>(this.apiURL);
-    this.bartApiInfoS = this.http.get<any>(this.apiURL);
-    console.log(this.bartApiInfo.subscribe(
+
+    this.bartApiInfo.subscribe(
       x => {
         console.log(x)
 
         for (let s of x.root.stations.station) {
-          const info: Station= {
-
-         station:s.city,
-         city: s.city,
-         time: s.time,
-         date: s.date
-         
-            
-            
-            
-            
-            
+          const info: Station = {
+            abbr: s.abbr,
+            title: s.city,
+            url: 'folder/'+s.abbr,
+            county: s.county,
           }
           this.station.push(info);
         }
         console.log(this.station)
-        
-
-      }
-
-    ));
-    
-
+      });
   }
-  
+  getDataS(): Station[] {
+    return this.station;
+  }
+
 }
