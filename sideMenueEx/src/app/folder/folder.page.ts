@@ -20,7 +20,8 @@ export class FolderPage implements OnInit {
   ngOnInit() {
     this.folder = this.activatedRoute.snapshot.paramMap.get('id');
     console.log(this.folder);
-    const url = `asdf;jasd;lkfjasdfl;kj${this.folder}as;kdfhj;alskdjfa;skldfjk`
+    const url = `http://api.bart.gov/api/etd.aspx?cmd=etd&orig=${this.folder}=MW9S-E7SL-26DU-VV8V&json=y`
+    
     //this.getStationData(url);
   }
 
