@@ -7,9 +7,10 @@ import { Station } from '../station';
   providedIn: 'root'
 })
 export class UserService {
-  apiURL = ' http://api.bart.gov/api/stn.aspx?cmd=stns&key=MW9S-E7SL-26DU-VV8V&json=y'
+  apiURL = '  http://api.bart.gov/api/etd.aspx?cmd=etd&orig=RICH&key=MW9S-E7SL-26DU-VV8V&json=y'
   apiURL2 = 'http://api.bart.gov/api/sched.aspx?cmd=depart&orig=ASHB&dest=CIVC&date=now&key=MW9S-E7SL-26DU-VV8V&b=2&a=2&l=1&json=y'
   bartApiInfo;
+  barApiInfoS;
   
   
   private station: Station[] = [];
@@ -18,10 +19,13 @@ export class UserService {
   getURL(apiURL:string): Observable<any> {
     return this.http.get<any>(apiURL);
   }
+  getURLS(apiURL2:string): Observable<any> {
+    return this.http.get<any>(apiURL2);
+  }
   parseStations() {
     this.bartApiInfo = this.http.get<any>(this.apiURL);
-    console.log()
-    this.bartApiInfo.subscribe(
+    this.bartApiInfoS = this.http.get<any>(this.apiURL);
+    console.log(this.bartApiInfo.subscribe(
       x => {
         console.log(x)
 
@@ -30,6 +34,8 @@ export class UserService {
 
          station:s.city,
          city: s.city,
+         time: s.time,
+         date: s.date
          
             
             
@@ -44,7 +50,9 @@ export class UserService {
 
       }
 
-    );
+    ));
+    
 
   }
+  
 }
