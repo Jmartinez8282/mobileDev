@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>{{ folder }}</ion-title>
+    <ion-title>{{ times?.name }},{{appPages?.address}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -17,11 +17,15 @@
   <div id="container">
     <strong class="capitalize">{{ folder }}</strong>
     <div *ngFor="let d of times?.etd"class="div">
-      {{d.destination}}
+     Destination:{{d.destination}}
       <div *ngFor="let e of d.estimate"class="div">
-{{e.minutes}}
+Estimated Time of Departure: {{e.minutes}}  Minutes
       </div>
+      <div *ngFor="let f of d.estimate"class="div">
+       <p>From  Platform:{{f.platform}}</p> 
+       <p>Direction{{f.direction}} </p><p>Length:{{f.length}} </p><p>Color:{{f.color}}</p> <p>Delay:{{f.delay}}</p>
+              </div>
     </div>
-    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">Bart Stations</a></p>
+    <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://www.bart.gov/schedules/developers/maps">Bart Stations</a></p>
   </div>
-</ion-content>
+  
