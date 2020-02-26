@@ -22,7 +22,7 @@ export class UserService {
     return this.http.get(apiURL);
   }
 
-  parseStations() {
+  /*parseStations() {
     this.bartApiInfo = this.http.get<any>(this.apiURL);
 
     this.bartApiInfo.subscribe(
@@ -35,14 +35,16 @@ export class UserService {
             title: s.city,
             url: 'folder/'+s.abbr,
             county: s.county,
+            address: s.address
           }
           this.station.push(info);
         }
         console.log(this.station)
       });
+      
   }
   getDataS(): Station[] {
     return this.station;
   }
 
-}
+*/}

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [];
   bartApiInfo;
-  
+  bartApiInfoE;
  
 
   constructor(
@@ -41,6 +41,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.parseStations();
+    
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
@@ -60,10 +61,14 @@ export class AppComponent implements OnInit {
             title: s.city,
             url: 'folder/'+s.abbr,
             county: s.county,
+            address:s.address,
+            estimate:s.estimate
           }
           this.appPages.push(info);
         }
         console.log(this.appPages)
       });
   }
+
+  
 }
